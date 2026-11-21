@@ -404,6 +404,14 @@ function paintReef(ctx, applied) {
   ctx.quadraticCurveTo(578, 456, 552, 500);
   ctx.closePath();
   ctx.fill();
+  ctx.strokeStyle = 'rgba(220,190,255,0.35)';
+  ctx.lineWidth = 2;
+  for (const dx of [-26, -9, 9, 26]) {
+    ctx.beginPath();
+    ctx.moveTo(544, 498);
+    ctx.quadraticCurveTo(544 + dx * 0.5, 428, 544 + dx, 368 + Math.abs(dx) * 0.8);
+    ctx.stroke();
+  }
 
   // The big fish — Difference: orange in the original, blue in the changed panel.
   fish(ctx, 330, 238, 1.5, has(applied, 'fish-colour') ? '#3f8fe2' : '#f08a3c', 1);
